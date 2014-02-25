@@ -3,8 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/syupei/glog"
-	"github.com/syupei/goconfig"
 	"io"
 	"math"
 	"os"
@@ -13,6 +11,12 @@ import (
 	"strings"
 	"syscall"
 	"time"
+)
+
+//import nonstandard package
+import (
+	"github.com/syupei/glog"
+	"github.com/syupei/goconfig"
 )
 
 var (
@@ -170,7 +174,7 @@ func validRetry() (err error) {
 
 func validSleep() (err error) {
 	if sleep < 0 {
-		err = errors.New("sleep must > 1")
+		err = errors.New("sleep must > 0 ")
 	}
 	return
 }
